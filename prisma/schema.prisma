@@ -55,6 +55,16 @@ model Adventure {
   updatedAt   DateTime @updatedAt
 }
 
+model Activity {
+  id          String  @id @default(cuid())
+  name        String
+  location    String
+  image       String
+  difficulty  String  // "facile", "moyen", "difficile"
+  description String?
+  createdAt   DateTime @default(now())
+}
+
 model Achievement {
   id          String   @id @default(cuid())
   userId      String

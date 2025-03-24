@@ -5,10 +5,16 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { SocialLogin } from "@/components/layout/Login/SocialLogin";
 import { Logo } from "@/components/layout/Login/Logo";
-
+import { auth } from "@/lib/auth";
+import { redirect } from "next/navigation";
 export default async function LoginPage({ searchParams }) {
   const resolvedSearchParams = await searchParams;
 
+  const session = await auth();
+
+  if (session) {
+    redirect("/dashboard");
+  }
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md p-8 bg-white/5 backdrop-blur-sm rounded-lg">
@@ -26,8 +32,8 @@ export default async function LoginPage({ searchParams }) {
               await signIn("credentials", {
                 email: formData.get("email"),
                 password: formData.get("password"),
-                redirectTo: resolvedSearchParams?.callbackUrl ?? "/dashboard",
-              });
+                redirectTo: resolvedSearchParams?.callbackUrl ?? "/profil",
+              }); // Retirez les accolades supplémentaires qui étaient ici
             } catch (error) {
               if (error instanceof AuthError) {
                 console.error("Auth error:", error);
