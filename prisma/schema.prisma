@@ -23,6 +23,8 @@ model User {
   adventures    Adventure[]
   achievements  Achievement[]
   companions    Companion[]
+  city          String          @default("Unknown")  // Ajoute une valeur par défaut temporaire
+  country       String          @default("Unknown") // Ajoute une valeur par défaut temporaire
  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

@@ -13,6 +13,18 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 import {
   Calendar,
@@ -26,9 +38,12 @@ import {
   Share2,
   Flag,
 } from "lucide-react";
+import { prisma } from "@/lib/prisma";
+import { getUserProfile } from "@/app/api/profile/action";
 
 export default async function ProfilePage() {
   const session = await auth();
+  const user = await getUserProfile();
 
   if (!session) {
     redirect("/login");
@@ -61,14 +76,61 @@ export default async function ProfilePage() {
 
             {/* Actions */}
             <div className="absolute bottom-4 right-4 flex gap-2">
-              <Button
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="bg-white text-blue-600 border-white"
+                  >
+                    <Edit className="h-4 w-4 mr-1" />
+                    Modifier
+                  </Button>
+                  {/* <Button variant="outline">Edit Profile</Button> */}
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <DialogHeader>
+                    <DialogTitle>Edit profile</DialogTitle>
+                    <DialogDescription>
+                      Make changes to your profile here. Click save when you're
+                      done.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="name" className="text-right">
+                        Name
+                      </Label>
+                      <Input
+                        id="name"
+                        defaultValue="Pedro Duarte"
+                        className="col-span-3"
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="username" className="text-right">
+                        Username
+                      </Label>
+                      <Input
+                        id="username"
+                        defaultValue="@peduarte"
+                        className="col-span-3"
+                      />
+                    </div>
+                  </div>
+                  <DialogFooter>
+                    <Button type="submit">Save changes</Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+              {/* <Button
                 variant="outline"
                 size="sm"
                 className="bg-white text-blue-600 border-white"
               >
                 <Edit className="h-4 w-4 mr-1" />
                 Modifier
-              </Button>
+              </Button> */}
               <Button
                 variant="outline"
                 size="sm"
@@ -87,7 +149,8 @@ export default async function ProfilePage() {
                   {session.user?.name || session.user?.email}
                 </h1>
                 <p className="text-gray-500 flex items-center">
-                  <MapPin className="h-4 w-4 mr-1" /> Chamonix, France
+                  <MapPin className="h-4 w-4 mr-1" /> {user?.city},{" "}
+                  {user?.country}
                 </p>
                 <div className="flex gap-2 mt-2">
                   <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200">
@@ -380,8 +443,8 @@ export default async function ProfilePage() {
 
               <TabsContent value="companions" className="mt-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {[1, 2, 3, 4].map((companion) => (
-                    <Card key={companion}>
+                  {user?.companions.map((companion) => (
+                    <Card key={companion.id}>
                       <CardContent className="p-6">
                         <div className="flex items-center gap-4">
                           <div className="w-14 h-14 rounded-full bg-gray-200 overflow-hidden">
@@ -392,12 +455,11 @@ export default async function ProfilePage() {
                             />
                           </div>
                           <div>
-                            <h4 className="font-semibold">
-                              Sophie Montagneuse
-                            </h4>
+                            <h4 className="font-semibold">{companion.name}</h4>
                             <p className="text-sm text-gray-500 flex items-center">
-                              <MapPin className="h-3 w-3 mr-1" /> Chamonix,
-                              France
+                              <MapPin className="h-3 w-3 mr-1" />
+                              {companion?.user?.city},{" "}
+                              {companion?.user?.country}
                             </p>
                             <div className="flex items-center mt-1">
                               <span className="text-xs mr-3 bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">
