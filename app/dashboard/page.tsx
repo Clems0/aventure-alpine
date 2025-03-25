@@ -21,7 +21,6 @@ export default function DashboardPage() {
     <>
       <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8">
-        {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-white text-3xl font-bold">Tableau de bord</h1>
@@ -34,7 +33,6 @@ export default function DashboardPage() {
           </Button>
         </div>
 
-        {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card className="bg-white/5 backdrop-blur-sm border-slate-700 p-6">
             <div className="flex items-center gap-4">
@@ -85,9 +83,7 @@ export default function DashboardPage() {
           </Card>
         </div>
 
-        {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Upcoming Adventures */}
           <Card className="bg-white/5 backdrop-blur-sm border-slate-700 p-6">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-white text-xl font-semibold">
@@ -124,7 +120,6 @@ export default function DashboardPage() {
             </div>
           </Card>
 
-          {/* Recent Activity */}
           <Card className="bg-white/5 backdrop-blur-sm border-slate-700 p-6">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-white text-xl font-semibold">

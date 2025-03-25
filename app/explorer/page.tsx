@@ -48,7 +48,6 @@ export default function ExplorerPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Hero Section */}
       <div className="relative h-[400px]">
         <div className="absolute inset-0">
           <img
@@ -71,7 +70,6 @@ export default function ExplorerPage() {
         </div>
       </div>
 
-      {/* Search Section */}
       <div className="container mx-auto px-4 -mt-8 relative z-10 mb-12">
         <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
           <div className="flex flex-col md:flex-row gap-4">
@@ -100,7 +98,6 @@ export default function ExplorerPage() {
         </div>
       </div>
 
-      {/* Activities Grid */}
       <div className="container mx-auto px-4 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredActivities.map((activity) => (

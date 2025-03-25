@@ -73,7 +73,6 @@ export default async function Home() {
         </div>
       </header> */}
       <Header />
-      {/* Hero Section */}
       <div className="relative h-screen">
         <div className="absolute inset-0">
           <img
@@ -108,7 +107,6 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Activities Section */}
       <section className="py-24 bg-slate-900">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-white text-center mb-12">
@@ -169,7 +167,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-sky-600 to-sky-800">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
@@ -185,7 +182,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-slate-900 border-t border-white/10 py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

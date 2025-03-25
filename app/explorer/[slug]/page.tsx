@@ -68,7 +68,6 @@ export default function ActivityPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <Header />
-      {/* Hero Section */}
       <div className="relative h-[500px]">
         <img
           src={activity.image}
@@ -110,10 +109,8 @@ export default function ActivityPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Left Column */}
           <div className="lg:col-span-2 space-y-8">
             <Tabs defaultValue="overview" className="space-y-6">
               <TabsList className="bg-white/5 border-slate-700">
@@ -255,7 +252,6 @@ export default function ActivityPage({ params }: PageProps) {
             </Tabs>
           </div>
 
-          {/* Right Column */}
           <div className="space-y-6">
             <Card className="bg-white/5 border-slate-700 p-6">
               <div className="text-center mb-6">

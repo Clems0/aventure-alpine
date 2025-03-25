@@ -25,7 +25,6 @@ export default async function BlogPage() {
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Sidebar with create post form */}
             <div className="lg:col-span-1">
               {session ? (
                 <CreatePost />
@@ -47,7 +46,6 @@ export default async function BlogPage() {
               )}
             </div>
 
-            {/* Main content with posts */}
             <div className="lg:col-span-3">
               <Suspense
                 fallback={

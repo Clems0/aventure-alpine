@@ -60,17 +60,14 @@ export default async function ProfilePage() {
       <Navbar />
       <div className="bg-gray-50 min-h-screen pt-36 pb-12 ">
         <div className="container mx-auto px-4">
-          {/* Profile Header */}
           <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
             <div className="h-48 bg-blue-600 relative">
-              {/* Banner Image */}
               <img
                 src="/api/placeholder/1200/300"
                 alt="Profile banner"
                 className="w-full h-full object-cover"
               />
 
-              {/* Profile Picture */}
               <div className="absolute -bottom-16 left-8">
                 <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden bg-white">
                   <Image
@@ -82,7 +79,6 @@ export default async function ProfilePage() {
                 </div>
               </div>
 
-              {/* Actions */}
               <div className="absolute bottom-4 right-4 flex gap-2">
                 <Dialog>
                   <DialogTrigger asChild>
@@ -193,9 +189,7 @@ export default async function ProfilePage() {
             </div>
           </div>
 
-          {/* Main Content */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Sidebar */}
             <div className="lg:col-span-1 space-y-6">
               {/* Stats Card
             <Card>
@@ -241,11 +235,9 @@ export default async function ProfilePage() {
                 </div>
               </CardContent>
             </Card> */}
-              {/* Upcoming Adventures */}
               <CardReservation />
             </div>
 
-            {/* Main Content */}
             <div className="lg:col-span-2">
               <Tabs defaultValue="adventures" className="w-full">
                 <TabsList className="w-full bg-white border-b rounded-none justify-start h-auto p-0">
@@ -278,8 +270,6 @@ export default async function ProfilePage() {
                       Filtrer
                     </Button>
                   </div>
-
-                  {/* Adventures List */}
 
                   <CardAventures />
 
