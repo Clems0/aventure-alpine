@@ -92,11 +92,11 @@ export default function ActivityPage({ params }: PageProps) {
                   {activity.difficulty.charAt(0).toUpperCase() +
                     activity.difficulty.slice(1)}
                 </Badge>
-                <div className="flex items-center text-amber-400">
+                {/* <div className="flex items-center text-amber-400">
                   <Star className="w-5 h-5 fill-current" />
                   <span className="ml-1">4.8</span>
                   <span className="text-gray-400 ml-1">(128 avis)</span>
-                </div>
+                </div> */}
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 {activity.name}
@@ -119,8 +119,8 @@ export default function ActivityPage({ params }: PageProps) {
               <TabsList className="bg-white/5 border-slate-700">
                 <TabsTrigger value="overview">Aperçu</TabsTrigger>
                 <TabsTrigger value="details">Détails</TabsTrigger>
-                <TabsTrigger value="equipment">Équipement</TabsTrigger>
-                <TabsTrigger value="reviews">Avis</TabsTrigger>
+                {/* <TabsTrigger value="equipment">Équipement</TabsTrigger> */}
+                {/* <TabsTrigger value="reviews">Avis</TabsTrigger> */}
               </TabsList>
 
               <TabsContent value="overview">
@@ -145,9 +145,7 @@ export default function ActivityPage({ params }: PageProps) {
                       <ul className="space-y-2 text-gray-400">
                         <li>• Rendez-vous à 8h au point de départ</li>
                         <li>• Briefing et vérification du matériel</li>
-                        <li>• Ascension (4-5 heures)</li>
-                        <li>• Pause déjeuner au sommet</li>
-                        <li>• Descente (2-3 heures)</li>
+                        <li>• Ascension {activity.duration} heurs</li>
                       </ul>
                     </div>
                     <div>
@@ -155,10 +153,7 @@ export default function ActivityPage({ params }: PageProps) {
                         Points clés
                       </h3>
                       <ul className="space-y-2 text-gray-400">
-                        <li>• Dénivelé : 800m</li>
-                        <li>• Distance : 12km</li>
-                        <li>• Altitude max : 2500m</li>
-                        <li>• Durée totale : 7-8 heures</li>
+                        <li>• Altitude max : {activity.altitude} mètres</li>
                       </ul>
                     </div>
                   </div>

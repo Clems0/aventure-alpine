@@ -89,9 +89,7 @@ const Navbar = () => {
                       <DropdownMenuItem asChild>
                         <Link href="/profil">Profil</Link>
                       </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link href="/settings">Paramètres</Link>
-                      </DropdownMenuItem>
+
                       <DropdownMenuItem asChild>
                         <Link onClick={() => signOut()} href="">
                           Déconnexion

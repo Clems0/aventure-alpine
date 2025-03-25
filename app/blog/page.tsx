@@ -3,6 +3,7 @@ import PostList from "@/components/layout/Blog/PostList";
 import { Suspense } from "react";
 import { auth } from "@/lib/auth";
 // import { redirect } from "next/navigation";
+
 import Header from "@/components/navbar";
 
 export default async function BlogPage() {
@@ -14,7 +15,7 @@ export default async function BlogPage() {
   // }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-white">
       <Header />
 
       <div className="container mx-auto px-4 py-12">
