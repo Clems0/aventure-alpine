@@ -129,10 +129,10 @@ export default function ExplorerPage() {
                     <h3 className="text-xl font-semibold text-white">
                       {activity.name}
                     </h3>
-                    <div className="flex items-center text-amber-400">
+                    {/* <div className="flex items-center text-amber-400">
                       <Star className="w-4 h-4 fill-current" />
                       <span className="ml-1 text-sm">4.8</span>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="grid grid-cols-2 gap-4 mb-4 text-sm text-gray-400">
                     <div className="flex items-center">
@@ -141,12 +141,9 @@ export default function ExplorerPage() {
                     </div>
                     <div className="flex items-center">
                       <Clock className="w-4 h-4 mr-2" />
-                      3h-4h
+                      {activity.duration || "1 heure"} heures
                     </div>
-                    <div className="flex items-center">
-                      <Users className="w-4 h-4 mr-2" />
-                      2-6 personnes
-                    </div>
+
                     <div className="flex items-center">
                       <Mountain className="w-4 h-4 mr-2" />
                       {activity.altitude || "1500m"}

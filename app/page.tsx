@@ -93,9 +93,11 @@ export default async function Home() {
               rejoignez une communauté passionnée de montagne.
             </p>
             <div className="flex space-x-4">
-              <Button className="bg-sky-600 hover:bg-sky-500 text-lg px-8">
-                Commencer l'aventure
-              </Button>
+              <Link href="/explorer">
+                <Button className="bg-sky-600 hover:bg-sky-500 text-lg px-8">
+                  Commencer l'aventure
+                </Button>
+              </Link>
               <Button
                 variant="outline"
                 className="border-white text-black hover:bg-white/10 hover:text-white text-lg px-8"
@@ -181,109 +183,6 @@ export default async function Home() {
           </Button>
         </div>
       </section>
-
-      <footer className="bg-slate-900 border-t border-white/10 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <Logo />
-              <p className="text-gray-400 mt-4">
-                Votre compagnon d'aventures en montagne.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold mb-4">Activités</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/hiking"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Randonnée
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/climbing"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Escalade
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/ski"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Ski
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold mb-4">Ressources</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/blog"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/safety"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Sécurité
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/equipment"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Équipement
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/contact"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Nous contacter
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/about"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    À propos
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/faq"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    FAQ
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-white/10 mt-12 pt-8 text-center text-gray-400">
-            <p>© 2024 Mountain Adventure. Tous droits réservés.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
