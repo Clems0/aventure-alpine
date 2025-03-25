@@ -24,6 +24,9 @@ model User {
   reservations  Reservation[]
   achievements  Achievement[]
   companions    Companion[]
+  posts         Post[]
+  likes         Like[]
+  comments      Comment[]
   totalTime Int      @default(0)
   summits   Int      @default(0)
   city          String          @default("Unknown")  // Ajoute une valeur par défaut temporaire
@@ -89,6 +92,36 @@ model Reservation {
   activity     Activity @relation(fields: [activityId], references: [id])
   user         User     @relation(fields: [userId], references: [id])
 }
+
+model Post {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  imageUrl    String
+  caption     String
+  createdAt   DateTime @default(now())
+  likes       Like[]
+  comments    Comment[]
+}
+
+model Like {
+  id      String @id @default(uuid())
+  userId  String
+  postId  String
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post    Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  userId    String
+  postId    String
+  text      String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+}
+
 
 model Achievement {
   id          String   @id @default(cuid())

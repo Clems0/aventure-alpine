@@ -43,6 +43,7 @@ import { CardReservation } from "@/components/layout/Profil/CardReservation";
 
 import { prisma } from "@/lib/prisma";
 import { getUserProfile } from "@/app/api/profile/action";
+import CardAventures from "@/components/layout/Profil/CardAventures";
 
 export default async function ProfilePage() {
   const session = await auth();
@@ -275,60 +276,8 @@ export default async function ProfilePage() {
                 </div>
 
                 {/* Adventures List */}
-                {[1, 2, 3, 4].map((adventure) => (
-                  <Card key={adventure} className="overflow-hidden">
-                    <div className="md:flex">
-                      <div className="md:w-1/3 h-48 md:h-auto bg-gray-200">
-                        <img
-                          src={`/api/placeholder/400/300`}
-                          alt="Adventure"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="md:w-2/3 p-6">
-                        <div className="flex justify-between items-start">
-                          <div>
-                            <h4 className="text-xl font-semibold mb-1">
-                              Mont Blanc via Goûter
-                            </h4>
-                            <p className="text-gray-500 flex items-center text-sm mb-3">
-                              <MapPin className="h-4 w-4 mr-1" /> Chamonix,
-                              France
-                            </p>
-                          </div>
-                          <Badge className="bg-green-100 text-green-800">
-                            Terminé
-                          </Badge>
-                        </div>
 
-                        <p className="text-gray-600 mb-4 line-clamp-2">
-                          Une ascension réussie du plus haut sommet des Alpes
-                          avec des conditions météorologiques idéales. Vue
-                          spectaculaire depuis le sommet!
-                        </p>
-
-                        <div className="flex flex-wrap gap-4 text-sm text-gray-500">
-                          <div className="flex items-center">
-                            <Calendar className="h-4 w-4 mr-1" />
-                            <span>14-15 Juin 2024</span>
-                          </div>
-                          <div className="flex items-center">
-                            <Clock className="h-4 w-4 mr-1" />
-                            <span>12h30 de marche</span>
-                          </div>
-                          <div className="flex items-center">
-                            <Mountain className="h-4 w-4 mr-1" />
-                            <span>4,810m d'altitude</span>
-                          </div>
-                          <div className="flex items-center">
-                            <Flag className="h-4 w-4 mr-1" />
-                            <span>1,600m de dénivelé</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
+                <CardAventures />
 
                 <Button variant="outline" className="w-full mt-4">
                   Charger plus d'aventures

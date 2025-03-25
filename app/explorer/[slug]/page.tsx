@@ -29,6 +29,8 @@ interface PageProps {
 }
 
 export default function ActivityPage({ params }: PageProps) {
+  // const activities = await getUserReservations();
+
   const [activity, setActivity] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
@@ -262,28 +264,23 @@ export default function ActivityPage({ params }: PageProps) {
           <div className="space-y-6">
             <Card className="bg-white/5 border-slate-700 p-6">
               <div className="text-center mb-6">
-                <p className="text-3xl font-bold text-white">89 €</p>
+                <p className="text-3xl font-bold text-white">
+                  {activity.price} €
+                </p>
                 <p className="text-gray-400">par personne</p>
               </div>
               <ModalReservation
                 activityId={activity.id}
                 activityName={activity.name}
-                price={89}
+                price={activity.price}
               />
 
               <div className="space-y-4">
                 <div className="flex items-center text-gray-400">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  <span>Prochaine date : 28 juin 2024</span>
-                </div>
-                <div className="flex items-center text-gray-400">
                   <Clock className="w-4 h-4 mr-2" />
-                  <span>Durée : 7-8 heures</span>
+                  <span>{activity.duration} heures</span>
                 </div>
-                <div className="flex items-center text-gray-400">
-                  <Users className="w-4 h-4 mr-2" />
-                  <span>2 à 6 participants</span>
-                </div>
+
                 <div className="flex items-center text-gray-400">
                   <Shield className="w-4 h-4 mr-2" />
                   <span>Guide certifié</span>
@@ -298,7 +295,6 @@ export default function ActivityPage({ params }: PageProps) {
               </h3>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>• Annulation gratuite jusqu'à 48h avant</li>
-                <li>• Niveau physique requis : Bon</li>
                 <li>• Âge minimum : 12 ans</li>
                 <li>• Équipement technique fourni</li>
               </ul>
