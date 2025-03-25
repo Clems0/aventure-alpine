@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
         hostname: "github.com",
       },
     ],
-    domains: ["avatars.githubusercontent.com"],
+    domains: ["avatars.githubusercontent.com", "jeromeobiols.com"],
   },
 };
 
