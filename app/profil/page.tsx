@@ -38,6 +38,9 @@ import {
   Share2,
   Flag,
 } from "lucide-react";
+
+import { CardReservation } from "@/components/layout/Profil/CardReservation";
+
 import { prisma } from "@/lib/prisma";
 import { getUserProfile } from "@/app/api/profile/action";
 
@@ -233,90 +236,8 @@ export default async function ProfilePage() {
                 </div>
               </CardContent>
             </Card>
-
             {/* Upcoming Adventures */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Prochaines aventures</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Calendar className="h-5 w-5 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Mont Blanc via Goûter</h4>
-                      <p className="text-sm text-gray-500">
-                        15-16 Juillet 2025
-                      </p>
-                      <div className="flex items-center mt-1">
-                        <div className="flex -space-x-2">
-                          <div className="w-6 h-6 rounded-full bg-gray-200 border-2 border-white"></div>
-                          <div className="w-6 h-6 rounded-full bg-gray-300 border-2 border-white"></div>
-                          <div className="w-6 h-6 rounded-full bg-gray-400 border-2 border-white"></div>
-                        </div>
-                        <span className="text-xs text-gray-500 ml-2">
-                          +2 compagnons
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Calendar className="h-5 w-5 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Aiguille du Midi</h4>
-                      <p className="text-sm text-gray-500">28 Juillet 2025</p>
-                      <div className="flex items-center mt-1">
-                        <Badge className="bg-yellow-100 text-yellow-800 hover:bg-yellow-200 text-xs">
-                          En attente
-                        </Badge>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="w-full mt-4 text-blue-600"
-                >
-                  Voir toutes les aventures planifiées
-                  <ChevronRight className="h-4 w-4 ml-1" />
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Recent Badges */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Trophées récents</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-3 gap-4">
-                  {[1, 2, 3, 4, 5, 6].map((badge) => (
-                    <div key={badge} className="flex flex-col items-center">
-                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2">
-                        <Award className="h-6 w-6 text-blue-600" />
-                      </div>
-                      <span className="text-xs text-center">Sommet 4000m</span>
-                    </div>
-                  ))}
-                </div>
-
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="w-full mt-4 text-blue-600"
-                >
-                  Voir tous les trophées
-                  <ChevronRight className="h-4 w-4 ml-1" />
-                </Button>
-              </CardContent>
-            </Card>
+            <CardReservation />
           </div>
 
           {/* Main Content */}

@@ -48,4 +48,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
     signIn: "/login",
   },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id; // Ajoute l'ID au token JWT
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.id = token.id; // Récupère l'ID depuis le token et l'ajoute à la session
+      }
+      return session;
+    },
+  },
 });

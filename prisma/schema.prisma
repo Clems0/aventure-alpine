@@ -18,11 +18,14 @@ model User {
   // Optional for WebAuthn support
   Authenticator Authenticator[]
 
-  profile       UserProfile?    // Relation vers UserProfile via userId
+  // profile       UserProfile?    // Relation vers UserProfile via userId
   profileId     String?         @unique  // Clé étrangère vers UserProfile
   adventures    Adventure[]
+  reservations  Reservation[]
   achievements  Achievement[]
   companions    Companion[]
+  totalTime Int      @default(0)
+  summits   Int      @default(0)
   city          String          @default("Unknown")  // Ajoute une valeur par défaut temporaire
   country       String          @default("Unknown") // Ajoute une valeur par défaut temporaire
  
@@ -30,15 +33,15 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
-model UserProfile {
-  id        String  @id @default(cuid())
-  userId    String  @unique
-  title     String?
-  totalTime Int      @default(0)
-  summits   Int      @default(0)
+// model UserProfile {
+//   id        String  @id @default(cuid())
+//   userId    String  @unique
+//   title     String?
+//   totalTime Int      @default(0)
+//   summits   Int      @default(0)
 
-  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
+//   user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+// }
 
 model Adventure {
   id          String   @id @default(cuid())
@@ -59,10 +62,32 @@ model Activity {
   id          String  @id @default(cuid())
   name        String
   location    String
+  reservations  Reservation[]
+  typeActivity String?
   image       String
+  altitude    Int?
+  date        DateTime?
   difficulty  String  // "facile", "moyen", "difficile"
   description String?
+  price       Int?
+  duration    Int?
   createdAt   DateTime @default(now())
+}
+
+
+model Reservation {
+  id           String   @id @default(cuid())
+  activityId   String
+  userId       String
+  date         DateTime
+  participants Int
+  totalPrice   Float
+  status       String   @default("pending") // pending, confirmed, cancelled
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  activity     Activity @relation(fields: [activityId], references: [id])
+  user         User     @relation(fields: [userId], references: [id])
 }
 
 model Achievement {
